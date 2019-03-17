@@ -26,6 +26,10 @@ This demo code is detailed in my [blog post related to the Yadom BRKABZ01](https
 ## Use the demo code
 In the Release directory you have a **.hex** file with a compiled version of the firmware. You can directly upload it following the procedure over DFU detailed in the blog post.
 
+you can take a look to the demo video:
+[![Alt text](https://img.youtube.com/vi/Jn5eIoJ9oiM/0.jpg)](https://www.youtube.com/watch?v=Jn5eIoJ9oiM)
+
+
 ## Compile the demo code
 
 Watch the setup video for getting started (select HD display) - this one has been made for another project but the principle stays the same.
