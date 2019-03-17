@@ -83,8 +83,6 @@ void Error_Handler(void);
 #define RADIO_NSS_GPIO_Port GPIOA
 #define RADIO_SCLK_Pin GPIO_PIN_3
 #define RADIO_SCLK_GPIO_Port GPIOB
-#define RADIO_TCXO_VCC_Pin GPIO_PIN_12
-#define RADIO_TCXO_VCC_GPIO_Port GPIOA
 #define RADIO_DIO_0_Pin GPIO_PIN_4
 #define RADIO_DIO_0_GPIO_Port GPIOB
 #define RADIO_DIO_0_EXTI_IRQn EXTI4_15_IRQn
@@ -100,6 +98,8 @@ void Error_Handler(void);
 #define RADIO_DIO_1_EXTI_IRQn EXTI0_1_IRQn
 #define LED_Pin GPIO_PIN_1
 #define LED_GPIO_Port GPIOH
+#define RADIO_TCXO_VCC_Pin GPIO_PIN_2
+#define RADIO_TCXO_VCC_GPIO_Port GPIOB
 #define RADIO_ANT_SWITCH_RX_Pin GPIO_PIN_1
 #define RADIO_ANT_SWITCH_RX_GPIO_Port GPIOA
 #define RADIO_ANT_SWITCH_TX_RFO_Pin GPIO_PIN_2

@@ -71,7 +71,7 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, RADIO_NSS_Pin|RADIO_TCXO_VCC_Pin|RADIO_ANT_SWITCH_RX_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, RADIO_NSS_Pin|RADIO_ANT_SWITCH_RX_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, RADIO_ANT_SWITCH_TX_BOOST_Pin|RADIO_RESET_Pin|RADIO_ANT_SWITCH_TX_RFO_Pin, GPIO_PIN_RESET);
@@ -79,20 +79,31 @@ void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PAPin PAPin PAPin */
-  GPIO_InitStruct.Pin = RADIO_NSS_Pin|RADIO_TCXO_VCC_Pin|RADIO_ANT_SWITCH_RX_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(RADIO_TCXO_VCC_GPIO_Port, RADIO_TCXO_VCC_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PAPin PAPin */
+  GPIO_InitStruct.Pin = RADIO_NSS_Pin|RADIO_ANT_SWITCH_RX_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PB5 PB9 PB6 PB8 
-                           PB7 PB2 PB11 PB10 */
+                           PB7 PB11 PB10 */
   GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_9|GPIO_PIN_6|GPIO_PIN_8 
-                          |GPIO_PIN_7|GPIO_PIN_2|GPIO_PIN_11|GPIO_PIN_10;
+                          |GPIO_PIN_7|GPIO_PIN_11|GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA12 PA10 PA8 PA11 
+                           PA9 PA0 PA4 PA5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_10|GPIO_PIN_8|GPIO_PIN_11 
+                          |GPIO_PIN_9|GPIO_PIN_0|GPIO_PIN_4|GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PBPin PBPin PBPin */
   GPIO_InitStruct.Pin = RADIO_DIO_0_Pin|RADIO_DIO_1_Pin|RADIO_DIO_2_Pin;
@@ -105,14 +116,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(RADIO_DIO_3_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PA10 PA8 PA11 PA9 
-                           PA0 PA4 PA5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_8|GPIO_PIN_11|GPIO_PIN_9 
-                          |GPIO_PIN_0|GPIO_PIN_4|GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PCPin PCPin PCPin */
   GPIO_InitStruct.Pin = RADIO_ANT_SWITCH_TX_BOOST_Pin|RADIO_RESET_Pin|RADIO_ANT_SWITCH_TX_RFO_Pin;
@@ -127,6 +130,13 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = RADIO_TCXO_VCC_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(RADIO_TCXO_VCC_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI0_1_IRQn, 0, 0);
@@ -149,9 +159,9 @@ void stm32l_lowPowerRestoreGpioConfig() {
 	  __HAL_RCC_GPIOH_CLK_ENABLE();
 
 	  /*Configure GPIO pins : PAPin PAPin PAPin */
-	  HAL_GPIO_WritePin(GPIOA, RADIO_TCXO_VCC_Pin| RADIO_ANT_SWITCH_RX_Pin, GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOA, RADIO_ANT_SWITCH_RX_Pin, GPIO_PIN_RESET);
 	  HAL_GPIO_WritePin(GPIOA, RADIO_NSS_Pin, GPIO_PIN_SET);
-	  GPIO_InitStruct.Pin = RADIO_NSS_Pin|RADIO_TCXO_VCC_Pin|RADIO_ANT_SWITCH_RX_Pin;
+	  GPIO_InitStruct.Pin = RADIO_NSS_Pin|RADIO_ANT_SWITCH_RX_Pin;
 	  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	  GPIO_InitStruct.Pull = GPIO_NOPULL;
 	  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
@@ -168,6 +178,14 @@ void stm32l_lowPowerRestoreGpioConfig() {
 	  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
 	  GPIO_InitStruct.Pull = GPIO_NOPULL;
 	  HAL_GPIO_Init(RADIO_DIO_3_GPIO_Port, &GPIO_InitStruct);
+
+	  /*Configure GPIO pin : PtPin */
+	  HAL_GPIO_WritePin(RADIO_TCXO_VCC_GPIO_Port, RADIO_TCXO_VCC_Pin, GPIO_PIN_RESET);
+	  GPIO_InitStruct.Pin = RADIO_TCXO_VCC_Pin;
+	  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	  GPIO_InitStruct.Pull = GPIO_NOPULL;
+	  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	  HAL_GPIO_Init(RADIO_TCXO_VCC_GPIO_Port, &GPIO_InitStruct);
 
 
 	  /* EXTI interrupt init*/

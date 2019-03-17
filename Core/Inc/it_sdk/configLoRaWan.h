@@ -196,8 +196,8 @@
 #define ITSDK_SX1276_RESET_PIN		 __LP_GPIO_0
 #define ITSDK_SX1276_NSS_BANK		 __BANK_A							   // SX1276 GPIO FOR Activating Low Slave Select NSS
 #define ITSDK_SX1276_NSS_PIN		 __LP_GPIO_15
-#define ITSDK_SX1276_TCXO_VCC_BANK	 __BANK_A							   // SX1276 GPIO FOR Activating TCXO
-#define ITSDK_SX1276_TCXO_VCC_PIN	 __LP_GPIO_12
+#define ITSDK_SX1276_TCXO_VCC_BANK	 __BANK_B							   // SX1276 GPIO FOR Activating TCXO
+#define ITSDK_SX1276_TCXO_VCC_PIN	 __LP_GPIO_2
 #define ITSDK_SX1276_DIO_0_BANK	 	 __BANK_B							   // SX1276 GPIO 0 => Rx/Tx Done interrupt
 #define ITSDK_SX1276_DIO_0_PIN	 	 __LP_GPIO_4
 #define ITSDK_SX1276_DIO_1_BANK	 	 __BANK_B							   // SX1276 GPIO 1 => Rx Timeout interrupt

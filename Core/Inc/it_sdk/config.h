@@ -114,7 +114,7 @@
 								/*	 | __LP_GPIO_7 */      /* spi1 */		\
 								/*	 | __LP_GPIO_8 */      /* not used */	\
 								/*	 | __LP_GPIO_9 */      /* not used */	\
-								/*	 | __LP_GPIO_12 */	   /* LoRa Tcxo */	\
+								/*	 | __LP_GPIO_12 */	   /* not used */	\
 								/*	 | __LP_GPIO_13 */     /* lpuart */		\
 								/*	 | __LP_GPIO_14	*/     /* lpuart */		\
 								/*	 | __LP_GPIO_15	*/     /* LoRa Nss */	\
@@ -122,7 +122,7 @@
 #define ITSDK_LOWPOWER_GPIO_B_KEEP	(  __LP_GPIO_NONE 						\
 								/*     __LP_GPIO_0 */   /* LoRa Dio2 */ 	\
 								/*   | __LP_GPIO_1 */ 	/* LoRa Dio1 */ 	\
-								/*	 | __LP_GPIO_2 */	/* not used */  	\
+								/*	 | __LP_GPIO_2 */	/* LoRa Tcxo */  	\
 								/*	 | __LP_GPIO_3 */   /* spi1 */ 			\
 								/*	 | __LP_GPIO_4 */	/* LoRa Dio0 */ 	\
 								/*	 | __LP_GPIO_5 */	/* not used */ 		\
