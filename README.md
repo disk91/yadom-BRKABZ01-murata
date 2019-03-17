@@ -20,6 +20,9 @@ The command **?**[ENTER] will show you the public console commands.
 You need to login the console to access configuration. Type **changeme**[ENTER] on the console to get logged.
 Then you will be able to see all the commands with **?**[ENTER] after login. 
 
+## Important notice
+The Yadom BRKABZ01 is using a non usual TCXO_VCC pin asignment. As a consequence this code will not directly work with a standard devkit. You can easily change this by modifying the pin asignment is the config files & cubeMx. In a such situation you can also take a look to  [this other murata example code](https://github.com/disk91/itsdk-example-murata-lora) 
+
 ## Get more details
 This demo code is detailed in my [blog post related to the Yadom BRKABZ01](https://www.disk91.com/?p=3603) breakout board. Follow the link to get details.
 
